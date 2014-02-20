@@ -8,7 +8,7 @@ class ZipcodeSerializer(serializers.ModelSerializer):
         read_only_fields = ('zipcode', 'street', 'city', 'state')
 
 
-class StateSerializer(serializers.ModelSerializer):
+class CitySerializer(serializers.ModelSerializer):
     state = serializers.ChoiceField()
     class Meta:
         model = Zipcode

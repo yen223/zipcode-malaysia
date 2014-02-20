@@ -5,13 +5,13 @@ from rest_framework import views, viewsets, generics, mixins
 from rest_framework.decorators import link
 from rest_framework.response import Response
 from ..models import Zipcode
-from .serializers import ZipcodeSerializer, StateSerializer
+from .serializers import ZipcodeSerializer, CitySerializer
 
 
-class StateFinder(views.APIView):
+class CityFinder(views.APIView):
     def get(self, request, zipcode):
         qs = Zipcode.objects.filter(zipcode=zipcode).distinct('city', 'state')
-        serializer = StateSerializer(qs)
+        serializer = CitySerializer(qs)
         return Response(serializer.data)
 
 
