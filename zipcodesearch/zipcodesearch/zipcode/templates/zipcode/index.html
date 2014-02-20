@@ -23,7 +23,6 @@
   <script src="../static/javascripts/modernizr.foundation.js"></script>
   <!--Google Analytics-->
   <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-37192035-1']);
     _gaq.push(['_trackPageview']);
@@ -48,15 +47,15 @@
   <div class="row">
     <div class="twelve columns">
       <form id="paragraphs">
-        <div class="row">      
+        <div class="row">
           <div class="three columns">
-            <label class="right inline">Number of Paragraphs (1 - 15):&nbsp;</label>
+            <label class="right inline">Zip Code:</label>
           </div>
           <div class="two columns">
-            <input type="text" class="inline" value="3" name="num_paragraphs"/>
+            <input type="text" class="inline" value="11000" name="postcode"/>
           </div>
           <div class="three columns">
-            <a id="btn_generate" class="button expand postfix" href ="#paragraphs">Generate!</a>
+            <a id="btn_generate" class="button expand postfix" href ="#findcity">Find City</a>
           </div>
           <div class="four columns end">
             <p></p>
@@ -66,7 +65,15 @@
       <!-- Grid Example -->
       <div class="row collapse">
         <div class="twelve columns">
-          <div id="textdisplay"></div>
+          <div id="result-display" style="display:none">
+            <table>
+                <thead>
+                    <tr><th>Zipcode</th><th>City</th><th>State</th></tr>
+                </thead>
+                <tbody id="results" />
+
+            </table>
+          </div>
         </div>
         <hr />
       </div>
@@ -83,15 +90,7 @@
       <div class="g-plusone"></div>
     </div>
   </footer>
-      
-      
-      
-      
-      
 
-  
-  
-  
   <!-- Included JS Files (Uncompressed) -->
   <!--
   <script src="javascripts/jquery.js"></script><script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script><script src="javascripts/jquery.foundation.forms.js"></script><script src="javascripts/jquery.foundation.reveal.js"></script><script src="javascripts/jquery.foundation.orbit.js"></script><script src="javascripts/jquery.foundation.navigation.js"></script><script src="javascripts/jquery.foundation.buttons.js"></script><script src="javascripts/jquery.foundation.tabs.js"></script><script src="javascripts/jquery.foundation.tooltips.js"></script><script src="javascripts/jquery.foundation.accordion.js"></script><script src="javascripts/jquery.placeholder.js"></script><script src="javascripts/jquery.foundation.alerts.js"></script><script src="javascripts/jquery.foundation.topbar.js"></script><script src="javascripts/jquery.foundation.joyride.js"></script><script src="javascripts/jquery.foundation.clearing.js"></script><script src="javascripts/jquery.foundation.magellan.js"></script>

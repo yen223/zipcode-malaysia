@@ -36,26 +36,36 @@
   }
 
   var get_text = function(event){
-    $.getJSON($SCRIPT_ROOT + "/get_text", {
-      num_of_paragraphs: $('input[name="num_paragraphs"]').val()
-    }, function(data){
-        var arr = data["texts"];
-        $('#textdisplay').html(paragraphize(arr));
-        $('input[name="num_paragraphs"]').val(data["num_of_paragraphs"]);
+    var $result = $("#result-display");
+    $result.hide();
+    $.getJSON('/api/state/' + $('input[name="postcode"]').val() + '/', function(data){
+        console.log('Data:' + data);
+        $('#results').html(tablerize(data));
     });
+    $result.show();
     return false;
   }
 
   $("#btn_generate").on("click", get_text);
   $("#paragraphs").submit(get_text);
-
+  $( 'input[name="postcode"]' ).change(function() {
+    if ($('input[name="postcode"]').val().length >= 5){
+        $("#btn_generate").removeAttr("disabled");
+    } else {
+        $("#btn_generate").attr("disabled", true);
+    }
+  });
 
 })(jQuery, this);
 
-  function paragraphize(arr){
+  function tablerize(data){
       result = [];
-      $.each(arr, function(index,value){
-        result[index] = ('<p>' + value + '</p>');
-      });
+      if (data.length > 0){
+          $.each(data, function(index,value){
+            result.push('<tr><td>' + value['zipcode'] + '</td><td>' + value['city'] + '</td><td>' + value['state'] + '</td></tr>');
+          });
+        } else {
+            result.push('<tr><td colspan="3">No results found.</td></tr>');
+        }
       return result.join('');
     };

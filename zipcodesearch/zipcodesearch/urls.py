@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/state/(?P<zipcode>.*?)/$', CityFinder.as_view()),
+    url(r'^api/state/(?P<zipcode>.*?)/$', CityFinder.as_view(), name='city_finder_url'),
     url(r'^api/$', include(router.urls)),
     url(r'^', TemplateView.as_view(template_name="zipcode/index.html")),
 
