@@ -35,7 +35,7 @@
     });
   }
 
-  var get_text = function(event){
+  var get_result = function(event){
     var $result = $("#result-display");
     $result.hide();
     $.getJSON('/api/state/' + $('input[name="postcode"]').val() + '/', function(data){
@@ -46,8 +46,8 @@
     return false;
   }
 
-  $("#btn_generate").on("click", get_text);
-  $("#paragraphs").submit(get_text);
+  $("#btn_generate").on("click", get_result);
+  $("#paragraphs").submit(get_result);
   $( 'input[name="postcode"]' ).change(function() {
     if ($('input[name="postcode"]').val().length >= 5){
         $("#btn_generate").removeAttr("disabled");
