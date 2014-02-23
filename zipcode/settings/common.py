@@ -1,5 +1,5 @@
 """
-Django settings for zipcodesearch project.
+Django settings for zipcode project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -17,13 +17,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$-%dkjc9+&19f)@4=eb215ca*_@q_9x(y9g+68j-s&!2z5bi6h'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
+DEBUG = False
+TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = []
 
 
@@ -37,7 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'zipcodesearch.zipcode',
+    'zipcode.zipcode',
     'rest_framework',
     'south',
 )
@@ -51,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'zipcodesearch.urls'
+ROOT_URLCONF = 'zipcode.urls'
 
-WSGI_APPLICATION = 'zipcodesearch.wsgi.application'
+WSGI_APPLICATION = 'zipcode.wsgi.application'
 
 
 # Database
@@ -87,8 +85,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
-try:
-   from local_settings import *
-except ImportError, e:
-   pass

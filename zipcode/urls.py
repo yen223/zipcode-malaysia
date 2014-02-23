@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
-from zipcodesearch.zipcode.api.views import ZipcodeViewSet, CityFinder
+from zipcode.api.views import StreetFinder, CityFinder
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'zipcode', ZipcodeViewSet)
+# router.register(r'zipcode', ZipcodeViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -14,7 +14,8 @@ urlpatterns = patterns('',
 
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^api/state/(?P<zipcode>.*?)/$', CityFinder.as_view(), name='city_finder_url'),
+    url(r'^api/street/(?P<zipcode>.*?)/$', StreetFinder.as_view(), name='street_finder_url'),
     url(r'^api/$', include(router.urls)),
-    url(r'^', TemplateView.as_view(template_name="zipcode/index.html")),
+    url(r'^$', TemplateView.as_view(template_name="zipcode/index.html")),
 
 )

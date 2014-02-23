@@ -1,5 +1,5 @@
 import csv
-from zipcodesearch.zipcode.models import Zipcode
+from zipcode.zipcode.models import Zipcode
 with open('scripts/postcode.csv') as csvfile:
     reader = csv.reader(csvfile, delimiter=";")
     error = []

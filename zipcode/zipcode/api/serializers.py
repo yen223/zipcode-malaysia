@@ -2,11 +2,11 @@ from rest_framework import serializers
 from ..models import Zipcode
 
 
-class ZipcodeSerializer(serializers.ModelSerializer):
+class StreetSerializer(serializers.ModelSerializer):
     state = serializers.CharField(source='get_state_display')
     class Meta:
         model = Zipcode
-        read_only_fields = ('zipcode', 'street', 'city', 'state')
+        read_only_fields = ('zipcode', 'street', 'city')
 
 
 class CitySerializer(serializers.ModelSerializer):
