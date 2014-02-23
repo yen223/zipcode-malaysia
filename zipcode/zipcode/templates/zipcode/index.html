@@ -19,6 +19,7 @@
   <!-- Included CSS Files (Compressed) -->
   <link rel="stylesheet" href="../static/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="../static/stylesheets/app.css">
+  <link rel="stylesheet" href="../static/stylesheets/jquery.dynatable.css">
   
   <script src="../static/javascripts/modernizr.foundation.js"></script>
   <!--Google Analytics-->
@@ -48,15 +49,18 @@
     <div class="twelve columns">
       <form id="paragraphs">
         <div class="row">
-          <div class="three columns">
-            <label class="right inline">Zip Code:</label>
+          <div class="one columns">
+            <label class="left inline">Zip Code:</label>
           </div>
           <div class="two columns">
-            <input type="text" class="inline" value="11000" name="postcode"/>
+            <input type="text" class="inline" placeholder="e.g. 11000" name="postcode"/>
           </div>
           <div class="three columns">
-            <a id="btn_generate" class="button expand postfix" href ="#findcity">Find City</a>
+            <a id="btn_find_city" class="button expand postfix">Find Cities</a>
           </div>
+          <div class="three columns">
+            <a id="btn_find_street" class="button expand postfix">Find Streets</a>
+        </div>
           <div class="four columns end">
             <p></p>
           </div>
@@ -65,12 +69,34 @@
       <!-- Grid Example -->
       <div class="row collapse">
         <div class="twelve columns">
-          <div id="result-display" style="display:none">
-            <table>
+          <div id="city-result-display" class="row" style="display:none">
+            <table id="city-results">
                 <thead>
-                    <tr><th>Zipcode</th><th>City</th><th>State</th></tr>
+                    <th data-dynatable-column="zipcode">Zipcode</th>
+                    <th data-dynatable-column="city">City</th>
+                    <th data-dynatable-column="state">State</th>
                 </thead>
-                <tbody id="results" />
+                <tbody>
+                    <tr>
+                        <td colspan="3">No results found.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+          </div>
+          <div id="street-result-display" style="display:none">
+            <table id="street-results">
+                <thead>
+                    <th data-dynatable-column="street" style="width:60%">Street</th>
+                    <th data-dynatable-column="zipcode">Zipcode</th>
+                    <th data-dynatable-column="city">City</th>
+                    <th data-dynatable-column="state">State</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3">No results found.</td>
+                    </tr>
+                </tbody>
 
             </table>
           </div>
@@ -80,6 +106,9 @@
     </div>
   </div>
   <footer>
+    <div class="footer row">
+        Check out our API here: <a href="{% url 'django.swagger.base.view' %}">{% url 'django.swagger.base.view' %}</a>
+    </div>
     <div class="footer row">
       Follow me on twitter <a href="https://twitter.com/yen223">@yen223</a>, or on <a href="http://www.reddit.com/user/yen223/">Reddit</a>
     </div>
@@ -101,6 +130,7 @@
   <script src="../static/javascripts/foundation.min.js"></script>
   
   <!-- Initialize JS Plugins -->
+  <script src="../static/javascripts/jquery.dynatable.js"></script>
   <script src="../static/javascripts/app.js"></script>
   <script type=text/javascript>
     

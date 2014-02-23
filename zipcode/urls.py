@@ -5,7 +5,7 @@ from zipcode.api.views import StreetFinder, CityFinder
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-# router.register(r'zipcode', ZipcodeViewSet)
+# router.register(r'city2', CityFinder)
 
 urlpatterns = patterns('',
     # Examples:
