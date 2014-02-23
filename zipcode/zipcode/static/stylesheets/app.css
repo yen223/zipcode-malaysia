@@ -23,8 +23,8 @@ body{
 }
 h2{
 	font-family: 'Cabin', sans-serif;
-	text-transform: uppercase;
-	font-size: 5.6em;
+	/*text-transform: uppercase;*/
+	font-size: 3.0em;
 }
 h2 em{
 	font-style: normal;
