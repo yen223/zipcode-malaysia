@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'zipcode.zipcode',
     'rest_framework',
+    'rest_framework_swagger',
     'south',
 )
 
@@ -61,7 +62,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "zipdb",
-        "USER": "weiyenlee",
+        "USER": "",
         "PASSWORD": "",
         "HOST": "127.0.0.1",
     }
