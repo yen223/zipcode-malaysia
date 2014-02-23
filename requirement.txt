@@ -4,3 +4,4 @@ djangorestframework
 south
 django-extensions
 django-rest-swagger
+gunicorn
