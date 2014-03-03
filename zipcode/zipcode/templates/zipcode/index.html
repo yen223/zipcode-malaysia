@@ -24,19 +24,6 @@
   <link rel="stylesheet" href="{% static 'stylesheets/jquery.dynatable.css' %}">
   
   <script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
-  <!--Google Analytics-->
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-37192035-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
 </head>
 <body>
 
@@ -109,16 +96,13 @@
   </div>
   <footer>
     <div class="footer row">
-        Check out our API here: <a href="{% url 'django.swagger.base.view' %}">{% url 'django.swagger.base.view' %}</a>
-    </div>
-    <div class="footer row">
-      Follow me on twitter <a href="https://twitter.com/yen223">@yen223</a>, or on <a href="http://www.reddit.com/user/yen223/">Reddit</a>
-    </div>
-    <div class="footer row">
-      Share this website: 
-      <div class="fb-like" data-href="http://www.nocontextipsum.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-      <div class="g-plusone"></div>
+        <div class="twelve columns">
+            <h6>API</h6>
+            <ul>
+                <li>/api/city/&lt;zipcode&gt;/ - Find cities associated with zipcode</li>
+                <li>/api/street/&lt;zipcode&gt;/ - Find streets associated with zipcode</li>
+            </ul>
+        </div>
     </div>
   </footer>
 
@@ -142,25 +126,6 @@
   </script> -->
 
   <!--Facebook-->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=341871525845472";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <!--Twitter-->
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <!-- Google +1 -->
-  <script type="text/javascript">
-    window.___gcfg = {lang: 'en-GB'};
 
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
 </body>
 </html>
