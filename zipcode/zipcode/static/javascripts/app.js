@@ -87,7 +87,7 @@
     // $('#city-results').on("dynatable:beforeProcess", function(data){
     //     $result.hide();
     // })
-    $('#city-results').on("dynatable:afterProcess", function(data){
+    $('#city-results').on("dynatable:afterUpdate", function(data){
         $result.show();
     })
     dynatable.process();
