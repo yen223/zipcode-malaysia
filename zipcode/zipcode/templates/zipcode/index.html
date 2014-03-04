@@ -1,131 +1,168 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
+    <title>POSTCODE Malaysia</title>
 
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
-  <title>Malaysia Zipcode Locator</title>
-  
-  <!-- Included CSS Files (Uncompressed) -->
-  <!--
-  <link rel="stylesheet" href="stylesheets/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="{% static 'stylesheets/foundation.min.css' %}">
-  <link rel="stylesheet" href="{% static 'stylesheets/app.css' %}">
-  <link rel="stylesheet" href="{% static 'stylesheets/jquery.dynatable.css' %}">
-  
-  <script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
-</head>
-<body>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.dynatable.css' %}" rel="stylesheet">
+    <!-- Fonts from Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-  <div class="row">
-    <div class="twelve columns">
-      <h2>The Malaysian Postcode Database</h2>
-      <hr />
-    </div>
-  </div>
+  <body>
 
-  <div class="row">
-    <div class="twelve columns">
-      <form id="paragraphs">
-        <div class="row">
-          <div class="two columns">
-            <label class="left inline">Post Code:</label>
-          </div>
-          <div class="two columns">
-            <input type="text" class="inline" placeholder="e.g. 11000" name="postcode"/>
-          </div>
-          <div class="three columns">
-            <a id="btn_find_city" class="button expand postfix">Find Cities</a>
-          </div>
-          <div class="three columns">
-            <a id="btn_find_street" class="button expand postfix">Find Streets</a>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><b>POSTCODE</b>MALAYSIA</a>
         </div>
-          <div class="two columns end">
-            <p></p>
-          </div>
-        </div>
-      </form>
-      <!-- Grid Example -->
-      <div class="row collapse">
-        <div class="twelve columns">
-          <div id="city-result-display" class="row" style="display:none">
-            <table id="city-results">
-                <thead>
-                    <th data-dynatable-column="zipcode">Zipcode</th>
-                    <th data-dynatable-column="city">City</th>
-                    <th data-dynatable-column="state">State</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3">No results found.</td>
-                    </tr>
-                </tbody>
-
-            </table>
-          </div>
-          <div id="street-result-display" style="display:none">
-            <table id="street-results">
-                <thead>
-                    <th data-dynatable-column="street" style="width:60%">Street</th>
-                    <th data-dynatable-column="zipcode">Zipcode</th>
-                    <th data-dynatable-column="city">City</th>
-                    <th data-dynatable-column="state">State</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3">No results found.</td>
-                    </tr>
-                </tbody>
-
-            </table>
-          </div>
-        </div>
-        <hr />
+        <!--<div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Already a member?</a></li>
+          </ul>
+        </div>--><!--/.nav-collapse -->
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="footer row">
-        <div class="twelve columns">
-            <h6>API</h6>
-            <ul>
-                <li>/api/city/&lt;zipcode&gt;/ - Find cities associated with zipcode</li>
-                <li>/api/street/&lt;zipcode&gt;/ - Find streets associated with zipcode</li>
-            </ul>
-        </div>
-    </div>
-  </footer>
 
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  <script src="javascripts/jquery.js"></script><script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script><script src="javascripts/jquery.foundation.forms.js"></script><script src="javascripts/jquery.foundation.reveal.js"></script><script src="javascripts/jquery.foundation.orbit.js"></script><script src="javascripts/jquery.foundation.navigation.js"></script><script src="javascripts/jquery.foundation.buttons.js"></script><script src="javascripts/jquery.foundation.tabs.js"></script><script src="javascripts/jquery.foundation.tooltips.js"></script><script src="javascripts/jquery.foundation.accordion.js"></script><script src="javascripts/jquery.placeholder.js"></script><script src="javascripts/jquery.foundation.alerts.js"></script><script src="javascripts/jquery.foundation.topbar.js"></script><script src="javascripts/jquery.foundation.joyride.js"></script><script src="javascripts/jquery.foundation.clearing.js"></script><script src="javascripts/jquery.foundation.magellan.js"></script>
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="{% static 'javascripts/jquery.js' %}"></script>
-  <script src="{% static 'javascripts/foundation.min.js' %}"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="{% static 'javascripts/jquery.dynatable.js' %}"></script>
-  <script src="{% static 'javascripts/app.js' %}"></script>
-  
-  <!--<script>
-  $(window).load(function(){
-    $("#featured").orbit();
-  });
-  </script> -->
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h1>Enter the postcode<br/>
+					here.</h1>
+					<form class="form-inline" role="form">
+					  <div class="form-group">
+					    <input type="text" class="form-control" name="postcode" placeholder="try 31000!" >
+					  </div>
+					  <button id="btn_find_street" type="submit" class="btn btn-warning btn-lg">Find Locations 
+                      </button>
+                      <img src="{% static 'img/loader.gif' %}" class="loading" style="display: none;"/>
+					</form>					
+				</div><!-- /col-lg-6 -->
+				<div class="col-lg-6">
+					<img class="img-responsive" src="{% static 'img/ipad-hand' %}.png" alt="">
+				</div><!-- /col-lg-6 -->
+				
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+	
+	<div class="container" id="street-result-display" style="display:none">
+		<div class="row mt" >
+            <!--<h3></h3>-->
+            <div class="col-lg-7 col-lg-offset-0">
+			<div class="panel panel-primary ">
+                <h3 class="panel-heading">Locations near <strong id="result-label"></strong></h3>
+				<!--<h1>Your Landing Page<br/>Looks Wonderful Now.</h1>
+				<h3>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h3>-->
+                <table class="table" id="street-results">
+                    <thead>
+                        <!--<th>Zipcode</th>-->
+                        <th width="60%">Street</th>
+                        <th width="25%">City</th>
+                        <th width="20%">State</th>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <div id="paginate"/>
+                </div>
+			</div>
+            </div>
+            <div class="col-lg-6">
+                <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63744.04341467926!2d101.55973413078995!3d3.093936240232895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4e150312e52f%3A0x6c21c639bcb61ca8!2sSunway+Kayangan!5e0!3m2!1sen!2sus!4v1393939617582" width="100%" height="600" frameborder="0" style="border:0"></iframe>-->
+            </div>
+		</div><!-- /row -->
+		<!-- <div class="row centered">
+            <div class="col-lg-6 col-lg-offset-3">
+                <form class="form-inline" role="form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+                  </div>
+                  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
+                </form>                 
+            </div>
+            <div class="col-lg-3"></div>
+        </div> -->
+		<!--<div class="row mt centered">
+			<div class="col-lg-4">
+				<img src="{% static 'img/ser01.png' %}" width="180" alt="">
+				<h4>1 - Browser Compatibility</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+			</div>--><!--/col-lg-4 -->
 
-  <!--Facebook-->
+			<!--<div class="col-lg-4">
+				<img src="{% static 'img/ser02.png' %}" width="180" alt="">
+				<h4>2 - Email Campaigns</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 
-</body>
+			</div>--><!--/col-lg-4 -->
+
+			<!-- <div class="col-lg-4">
+				<img src="{% static 'img/ser03.png' %}" width="180" alt="">
+				<h4>3 - Gather Your Notes</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+
+			</div> 
+		</div>--><!-- /row -->
+	</div><!-- /container -->
+	
+	<!--<div class="container">
+		<hr>
+		<div class="row centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+				  </div>
+				  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
+				</form>					
+			</div>
+			<div class="col-lg-3"></div>
+		</div>
+		<hr>
+	</div>--><!-- /container -->
+
+		
+	<div class="container">
+		<p class="centered">Created by weiyen.me - 2013</p>
+	</div><!-- /container -->
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>var LOADER_GIF = "{% static 'img/loader-large.gif' %}"; </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'js/bootstrap.min' %}.js"></script>
+    <script src="{% static 'js/jquery.dynatable' %}.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
 </html>
